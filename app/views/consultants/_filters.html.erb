@@ -1,0 +1,19 @@
+<div>
+  <%= search_form_for @q do |f| %>
+    <div>
+      <div>
+        <%= f.label :summary_cont, "Related Products" %>
+        <%= f.select :summary_cont, options_for_select(related_products.map{|p| [p, p]}), include_blank: "(Unspecified)" %>
+      </div>
+      <div>
+        <%= f.label :skills_cont, "Specific Experiences" %>
+        <%= f.search_field :skills_cont %>
+      </div>
+      <div>
+        <%= f.label :locality_eq, "Location" %>
+        <%= f.select :locality_eq, options_for_select(@locations.map{|l| [l, l]}), include_blank: "(Unspecified)" %>
+      </div>
+      <%= f.submit "Apply Filter" %>
+    </div>
+  <% end %>
+</div>

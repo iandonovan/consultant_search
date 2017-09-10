@@ -1,0 +1,29 @@
+<div>
+  <% if @filtered_consultants.empty? %>
+    <h5>(No Matching Consultants)</h5>
+  <% else %>
+  <h3>Matching Consultants</h3>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>Locality</th>
+          <th>Skills</th>
+          <th>Summary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @filtered_consultants.each do |consultant| %>
+        <tr>
+          <td><%= consultant.full_name %></td>
+          <td><%= consultant.locality %></td>
+          <td><%= consultant.skills %></td>
+          <td><%= consultant.summary %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <% end %>
+</div>
